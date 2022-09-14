@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "f499dc12-94c7-4ae3-8dd1-2767555e63b1",
+		"name": "AMGC-ROZI RIKZA AKBAR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14596306"
+	},
+	"item": [
+		{
+			"name": "Binance",
+			"item": [
+				{
+					"name": "recent 1000 BTCUSDT klines",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "API-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/klines?symbol=BTCUSDT&interval=1m&limit=1000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"klines"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "BTCUSDT"
+								},
+								{
+									"key": "interval",
+									"value": "1m"
+								},
+								{
+									"key": "limit",
+									"value": "1000"
+								},
+								{
+									"key": "intervalNum",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BTCUSDT klines data 1-7 Sept",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "API-Key",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/klines?symbol=BTCUSDT&interval=1d&startTime=1662045514000&endTime=1662563914000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"klines"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "BTCUSDT"
+								},
+								{
+									"key": "interval",
+									"value": "1d"
+								},
+								{
+									"key": "startTime",
+									"value": "1662045514000"
+								},
+								{
+									"key": "endTime",
+									"value": "1662563914000"
+								},
+								{
+									"key": "limit",
+									"value": "1000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account Information",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{api_key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-MBX-APIKEY",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Judul Buku Seratus\",\r\n    \"isbn\": \"1-234-5678-9101112-1300\",\r\n    \"writer\": \"Dr. Rozi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v3/account?symbol=BTCUSDT&signature={{signature}}&timestamp={{timestamp}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"account"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "BTCUSDT"
+								},
+								{
+									"key": "signature",
+									"value": "{{signature}}"
+								},
+								{
+									"key": "timestamp",
+									"value": "{{timestamp}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/book",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/book/1234",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"book",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Book",
+					"request": {
+						"auth": {
+							"type": "basic"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Judul Buku Seratus\",\r\n    \"isbn\": \"1-234-5678-9101112-1300\",\r\n    \"writer\": \"Dr. Rozi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/book",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book by ID",
+					"request": {
+						"auth": {
+							"type": "basic"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Judul Buku Seratus Satu\",\r\n    \"isbn\": \"1-234-5678-9101112-1300\",\r\n    \"writer\": \"Dr. Rozi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/book/1234",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"book",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book by ID",
+					"request": {
+						"auth": {
+							"type": "basic"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/book/1234",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"book",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://testnet.binance.vision",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "uLBKDWYfGhPqj9ZrX00HPcf5xWVu8O7ywpzH0P3u3QEedI8dOd161ePN5h27wLVp",
+			"type": "string"
+		},
+		{
+			"key": "api_secret",
+			"value": "rP30FWhDl3ZZS5ZeDtdjvIoioYY4LPQqu1ThR4Unz4c94a21VgBplyjIkqdpygjD",
+			"type": "string"
+		},
+		{
+			"key": "timestamp",
+			"value": "1662045514000",
+			"type": "string"
+		},
+		{
+			"key": "signature",
+			"value": "c272af89738dcc3c5a565686937f25e060e5a750a7e2ec8e2f541c9c19a65dc9",
+			"type": "string"
+		}
+	]
+}
